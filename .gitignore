@@ -1,1 +1,10 @@
 wp-config.php
+node_modules/
+*.log
+*.lnk
+/.htaccess
+/**/.DS_Store
+/**/Thumbs.db
+/**/ehthumbs.db
+/**/ehthumbs_vista.db
+/**/Desktop.ini
