@@ -18,9 +18,16 @@ the_post();?>
             <li class="breadcrumb-item active">About</li>
         </ol>
 
+        <?php
+        $hero = get_field('my_portrait')['sizes']['large'];
+        $alt = get_field('my_portrait')['alt'];
+        ?>
+
+
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
+                <img class="img-fluid rounded mb-4" src="<?= $hero?>" alt="<?=$alt?>">
                 <?php the_content();?>
             </div>
         </div>
@@ -29,26 +36,19 @@ the_post();?>
         <!-- Our Customers -->
         <h2>Our Customers</h2>
         <div class="row">
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </div>
-        </div>
-        <!-- /.row -->
+
+            <?php
+            while ( have_rows('customers') ) : the_row();
+                $url = get_sub_field('logo')['url'];
+                ?>
+
+                <div class="col-lg-2 col-sm-4 mb-4">
+                    <img class="img-fluid" src="<?= $url ?>" alt="">
+                </div>
+
+                <?php
+            endwhile;
+            ?>
 
     </div>
     <!-- /.container -->
