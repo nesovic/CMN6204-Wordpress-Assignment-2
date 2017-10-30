@@ -33,8 +33,12 @@ the_post();
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
+                <?php
+                $url = get_field('featured_image')['sizes']['medium_large'];
+                $alt = get_field('featured_image')['alt'];
+                ?>
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="<?=$url?>" alt="<?=$alt?>">
                 </a>
             </div>
             <div class="col-md-5">
